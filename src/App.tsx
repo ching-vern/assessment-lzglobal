@@ -1,5 +1,12 @@
-function App() {
-  return <div>{/* Complete the exercise here. */}</div>;
-}
+import { BrowserRouter, useLocation } from 'react-router-dom';
+import Routing from './Routing';
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Routing />
+    </BrowserRouter>
+  );
+};
 
 export default App;
