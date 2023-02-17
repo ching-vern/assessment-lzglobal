@@ -1,6 +1,12 @@
 import { ReactNode, useEffect, useState } from 'react';
 import { Pagination } from 'antd';
 import Post from '../../types/post';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 type PaginatedListProps = {
   data: Post[];
@@ -20,12 +26,16 @@ const PaginatedList = ({ data, render, pageSize = 10 }: PaginatedListProps) => {
 
   const onPageChange = (page: number) => {
     setPage(page);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   };
 
   return (
-    <div>
+    <>
       {currentPage.map((item) => render(item))}
-      <div>
+      <Container>
         <Pagination
           current={page}
           pageSize={pageSize}
@@ -33,8 +43,8 @@ const PaginatedList = ({ data, render, pageSize = 10 }: PaginatedListProps) => {
           hideOnSinglePage={true}
           onChange={onPageChange}
         />
-      </div>
-    </div>
+      </Container>
+    </>
   );
 };
 

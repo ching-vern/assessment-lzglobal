@@ -1,4 +1,18 @@
 import { useEffect, useState } from 'react';
+import { Tag } from 'antd';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  .ant-tag-checkable {
+    background-color: white;
+    margin: 3px;
+    padding: 3px 9px;
+  }
+
+  .ant-tag-checkable-checked {
+    background-color: #1677ff;
+  }
+`;
 
 type MultipleSelectProps = {
   data: string[];
@@ -30,17 +44,17 @@ const MultipleSelect = ({ data, onChange }: MultipleSelectProps) => {
   };
 
   return (
-    <div>
+    <Container>
       {Object.keys(options).map((key) => (
-        <div
-          onClick={() => {
-            selectItem(key);
-          }}
+        <Tag.CheckableTag
+          key={key}
+          checked={options[key]}
+          onChange={() => selectItem(key)}
         >
-          {key} {options[key] ? 'true' : 'false'}
-        </div>
+          {key}
+        </Tag.CheckableTag>
       ))}
-    </div>
+    </Container>
   );
 };
 
