@@ -19,6 +19,7 @@ const PaginatedList = ({ data, render, pageSize = 10 }: PaginatedListProps) => {
   const [currentPage, setCurrentPage] = useState<Post[]>([]);
 
   useEffect(() => {
+    //calculate offset to use in limiting result list
     let offset = page * pageSize;
     let pageItems = data.slice(offset - pageSize, offset);
     setCurrentPage([...pageItems]);

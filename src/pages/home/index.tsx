@@ -28,10 +28,12 @@ const Home = () => {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
   useEffect(() => {
+    //retrieve all posts
     fetch('/api/posts')
       .then((response) => response.json())
       .then((json) => setPosts(json.posts));
 
+    //retrieve all categories
     fetch('/api/categories')
       .then((response) => response.json())
       .then((json) => setCategories(json));
@@ -42,17 +44,20 @@ const Home = () => {
   };
 
   const filterPosts = () => {
+    //if no categories selected, return original list
     if (selectedCategories.length === 0) {
       return posts;
     }
 
+    //else filter post according to categories selected
     return posts.filter((post) =>
-      post.categories.some((category) =>
-        selectedCategories.includes(category.name)
+      post.categories.some(
+        (category) => selectedCategories.includes(category.name) //check if post category is in list of selected categories
       )
     );
   };
 
+  //only re-filter posts when list of posts or selected category changes
   const filteredPosts: Post[] = useMemo(filterPosts, [
     selectedCategories,
     posts,

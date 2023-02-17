@@ -39,6 +39,7 @@ const MultipleSelect = ({ data, onChange }: MultipleSelectProps) => {
     onChange(selectedOptions);
   }, [options]);
 
+  //handle change in the selected options
   const selectItem = (item: string) => {
     setOptions({ ...options, [item]: !options[item] });
   };
