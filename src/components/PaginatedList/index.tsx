@@ -9,20 +9,14 @@ type PaginatedListProps = {
 };
 
 const PaginatedList = ({ data, render, pageSize = 10 }: PaginatedListProps) => {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [currentPage, setCurrentPage] = useState<Post[]>([]);
-
-  useEffect(() => {
-    if (data.length > 1) {
-      setPage(1);
-    }
-  }, [data]);
 
   useEffect(() => {
     let offset = page * pageSize;
     let pageItems = data.slice(offset - pageSize, offset);
     setCurrentPage([...pageItems]);
-  }, [page]);
+  }, [page, data]);
 
   const onPageChange = (page: number) => {
     setPage(page);
