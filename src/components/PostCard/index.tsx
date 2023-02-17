@@ -1,8 +1,9 @@
-import Post from '../../types/post';
 import { Avatar, Space, Tag } from 'antd';
-import styled, { keyframes } from 'styled-components';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import styled, { keyframes } from 'styled-components';
+
+import Post from '../../types/post';
 
 dayjs.extend(relativeTime);
 

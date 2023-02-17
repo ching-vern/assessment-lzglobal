@@ -1,6 +1,6 @@
-import { Navigate, Outlet, Route, Routes, useNavigate } from 'react-router-dom';
-import Container from './components/Container';
+import { Route, Routes } from 'react-router-dom';
 
+import Container from './components/Container';
 import Home from './pages/home';
 
 const Routing = () => {

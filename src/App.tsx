@@ -1,7 +1,7 @@
-import { BrowserRouter, useLocation } from 'react-router-dom';
-import Routing from './Routing';
-
+import { BrowserRouter } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
+
+import Routing from './Routing';
 
 const GlobalStyles = createGlobalStyle`
     body {

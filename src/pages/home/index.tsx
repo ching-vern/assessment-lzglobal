@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useState } from 'react';
+import { Col,Collapse, Row } from 'antd';
+import styled from 'styled-components';
+
 import MultipleSelect from '../../components/MultipleSelect';
 import PaginatedList from '../../components/PaginatedList';
 import PostCard from '../../components/PostCard';
 import Post from '../../types/post';
-import { Collapse, Row, Col } from 'antd';
-import styled from 'styled-components';
 
 const Container = styled.div`
   padding: 25px;

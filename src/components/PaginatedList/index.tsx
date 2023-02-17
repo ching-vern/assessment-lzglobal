@@ -1,7 +1,8 @@
 import { ReactNode, useEffect, useState } from 'react';
 import { Pagination } from 'antd';
-import Post from '../../types/post';
 import styled from 'styled-components';
+
+import Post from '../../types/post';
 
 const Container = styled.div`
   display: flex;
